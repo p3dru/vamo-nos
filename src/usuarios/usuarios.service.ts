@@ -17,12 +17,12 @@ export class UsuariosService {
     return await this.usuarioRepository.save(novoUsuario);
   }
 
-  async atualizarUsuario(id: number, usuarioDto: UsuarioDto): Promise<Usuario> {
+  async atualizarUsuario(id: number, updateUsuarioDto: UpdateUsuarioDto): Promise<Usuario> {
     const usuario = await this.usuarioRepository.findOneBy({id});
     if (!usuario){
-      //throw new NotFoundException('Usuário não encontrado');
+      throw new NotFoundException('Usuário não encontrado');
     }
-    Object.assign(usuario, usuarioDto);
+    Object.assign(usuario, updateUsuarioDto);
     return await this.usuarioRepository.save(usuario);
   }
 

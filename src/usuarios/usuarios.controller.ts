@@ -13,8 +13,8 @@ export class UsuariosController {
   }
 
   @Patch(':id')
-  async atualizarUsuario(@Param(':id') id: number, @Body() usuarioDto: UsuarioDto){
-    return this.usuariosService.atualizarUsuario(id, usuarioDto);
+  update(@Param('id') id: string, @Body() updateUsuarioDto: UpdateUsuarioDto) {
+    return this.usuariosService.atualizarUsuario(+id, updateUsuarioDto);
   }
 
   @Get()
@@ -28,10 +28,7 @@ export class UsuariosController {
   }
 
   /*
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateUsuarioDto: UpdateUsuarioDto) {
-    return this.usuariosService.update(+id, updateUsuarioDto);
-  }
+  
 */
 
   @Delete(':id')

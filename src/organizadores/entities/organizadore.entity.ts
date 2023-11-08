@@ -1,9 +1,8 @@
-import { Evento } from "src/eventos/entities/evento.entity";
-import { Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn, Unique } from "typeorm";
+import { Column, Entity, PrimaryGeneratedColumn, Unique } from "typeorm";
 
 @Entity()
-@Unique(['email'])
-export class Usuario {
+@Unique(["email"])
+export class Organizador {
     @PrimaryGeneratedColumn()
     id: number;
 
@@ -22,6 +21,6 @@ export class Usuario {
     /*
     @ManyToMany(() => Evento)
     @JoinTable()
-    eventos_inscritos: Evento[];
+    eventos_criados: Evento[];
     */
 }
