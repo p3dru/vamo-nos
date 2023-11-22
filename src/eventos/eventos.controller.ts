@@ -13,9 +13,10 @@ export class EventosController {
     @Query('titulo') titulo: string,
     @Query('descricao') descricao: string,
     @Query('categoria') categoria: string,
+    @Query('ativo') ativo: string,
     @Query('order') order: "ASC",
   ) {
-    const eventos = await this.eventosService.buscarTodosComFiltros(titulo, descricao, categoria, order);
+    const eventos = await this.eventosService.buscarTodosComFiltros(titulo, descricao, categoria, ativo, order);
     return eventos;
   }
 

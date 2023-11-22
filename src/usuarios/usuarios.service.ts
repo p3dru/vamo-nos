@@ -4,6 +4,7 @@ import { UpdateUsuarioDto } from './dto/update-usuario.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Usuario } from './entities/usuario.entity';
 import { Repository } from 'typeorm';
+import * as bcrypt from 'bcryptjs';
 
 @Injectable()
 export class UsuariosService {
@@ -14,6 +15,12 @@ export class UsuariosService {
 
   async criarUsuario(usuarioDto: UsuarioDto): Promise<Usuario> {
     const novoUsuario = this.usuarioRepository.create(usuarioDto);
+    //console.log(novoUsuario.senha);
+    const senhaHash = await bcrypt.hash(novoUsuario.senha, 10);
+
+    novoUsuario.senha = senhaHash;
+    //console.log(novoUsuario.senha);
+    //console.log(novoUsuario);
     return await this.usuarioRepository.save(novoUsuario);
   }
 
@@ -22,7 +29,13 @@ export class UsuariosService {
     if (!usuario){
       throw new NotFoundException('Usuário não encontrado');
     }
-    Object.assign(usuario, updateUsuarioDto);
+
+    if (usuario.senha) {
+      const senhaHash = await bcrypt.hash(usuario.senha, 10);
+      usuario.senha = senhaHash;
+    }
+
+    //Object.assign(usuario, updateUsuarioDto);
     return await this.usuarioRepository.save(usuario);
   }
 
@@ -38,7 +51,7 @@ export class UsuariosService {
       throw new NotFoundException('Usuário não encontrado');
     }
 
-    return await this.usuarioRepository.findOneBy({id});
+    return usuario;
   }
 
   async excluirUsuario(id: number) {

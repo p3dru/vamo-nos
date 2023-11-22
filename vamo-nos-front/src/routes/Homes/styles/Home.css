@@ -1,0 +1,56 @@
+.home{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+.apresentacao{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4rem;
+    margin-top: 8%;
+}
+
+.chamado{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.chamado h2{
+    margin-bottom: 3%;
+}
+
+.image-home{
+    width: 50%;
+    height: auto;
+}
+
+.btn{
+    display: flex;
+    flex-direction: column;
+    margin-top: 3%;
+}
+
+.btn-cadastro{
+    font-weight: bold;
+    border: 1px solid #fff;
+    padding: .5rem 1rem;
+    border-radius: 1rem;
+    transition: 1s;
+    opacity: 1;
+    margin-top: 8%;
+    width: 90%;
+    text-align: center;
+}
+
+.btn-cadastro:hover{
+    opacity: 1;
+    background-color: #fff;
+    color: #17191f;
+}

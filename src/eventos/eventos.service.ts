@@ -37,6 +37,7 @@ export class EventosService {
     titulo: string,
     descricao: string,
     categoria: string,
+    ativo: string,
     order: 'ASC',
     ): Promise<Evento[]>{
     const query = this.eventoRepository.createQueryBuilder('evento');
@@ -51,6 +52,10 @@ export class EventosService {
 
     if (categoria){
       query.andWhere('unaccent(evento.categoria) ilike unaccent(:categoria)', {categoria: `%${categoria}%`});
+    }
+
+    if(ativo){
+      query.andWhere('evento.ativo = :ativo', {ativo: ativo});
     }
 
     return await query.getMany();

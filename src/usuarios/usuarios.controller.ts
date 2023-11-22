@@ -9,7 +9,7 @@ export class UsuariosController {
 
   @Post()
   async criarUsuario(@Body() usuarioDto: UsuarioDto) {
-    return this.usuariosService.criarUsuario(usuarioDto);
+    return await this.usuariosService.criarUsuario(usuarioDto);
   }
 
   @Patch(':id')
