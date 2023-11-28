@@ -18,8 +18,8 @@ const Home = () => {
                 <img className="image-home" src={logo} alt="Logo"/>
             </div>
             <div className="btn">
-                <Link to={'/cadastrar-organizador'} className="btn-cadastro">Cadastrar-se como Organizador</Link>
-                <Link to={'/cadastrar-usuario'} className="btn-cadastro">Cadastrar-se como Participante</Link>
+                <Link to={'/login'} className="btn-cadastro">Acessar</Link>
+                <Link to={'/cadastrar'} className="btn-cadastro">Cadastrar-se</Link>
             </div>
         </div>
     )

@@ -12,8 +12,22 @@ import EditarUsuarioComum from './routes/Usuarios/Comuns/EditarUsuarioComum.jsx'
 import CriarUsuarioOrganizador from './routes/Usuarios/Organizadores/CriarUsuarioOrganizador.jsx'
 import EditarUsuarioOrganizador from './routes/Usuarios/Organizadores/EditarUsuarioOrganizador.jsx'
 import Sobre from './routes/Geral/Sobre.jsx';
-import HomeUsuarios from './routes/Homes/HomeUsuarios.jsx'
+import HomeParticipantes from './routes/Homes/HomeParticipantes.jsx'
 import HomeOrganizadores from './routes/Homes/HomeOrganizadores.jsx'
+import Login from "./routes/Geral/Login.jsx"
+import Cadastro from './routes/Geral/Cadastro.jsx'
+import LoginOrganizador from './routes/Login/LoginOrganizador.jsx'
+import AlterarSenhaOrganizadores from './routes/Login/AlterarSenha/AlterarSenhaOrganizadores.jsx'
+import LoginParticipante from './routes/Login/LoginParticipante.jsx'
+import AlterarSenhaParticipantes from './routes/Login/AlterarSenha/AlterarSenhaParticipantes.jsx'
+import OrganizadoresEventos from './routes/Usuarios/Organizadores/OrganizadoresEventos.jsx'
+import DetalhesEvento from './routes/Eventos/DetalhesEvento.jsx'
+import DetalhesEventosParticipantes from './routes/Eventos/DetalhesEventosParticipantes.jsx'
+import LoginAdmin from './routes/Login/LoginAdmin.jsx'
+import HomeAdmins from './routes/Homes/HomeAdmins.jsx'
+import GerenciarParticipantes from './routes/Usuarios/Admin/GerenciarParticipantes.jsx'
+import GerenciarOrganizadores from './routes/Usuarios/Admin/GerenciarOrganizadores.jsx'
+import GerenciarEventos from './routes/Usuarios/Admin/GerenciarEventos.jsx'
 
 const router = createBrowserRouter([
   {
@@ -24,23 +38,59 @@ const router = createBrowserRouter([
         element: <Home />
       },
       {
+        path: "/login",
+        element: <Login /> 
+      },
+      {
+        path: "/login-organizador",
+        element: <LoginOrganizador/>
+      },
+      {
+        path: "/login-participante",
+        element: <LoginParticipante/>
+      },
+      {
+        path: "/admin/login",
+        element: <LoginAdmin />
+      },
+      {
+        path: "/alterar-senha-organizadores",
+        element: <AlterarSenhaOrganizadores/>
+      },
+      {
+        path: "/alterar-senha-participantes",
+        element: <AlterarSenhaParticipantes/>
+      },
+      {
+        path: "/cadastrar",
+        element: <Cadastro />
+      },
+      {
         path: "/sobre",
         element: <Sobre />
       },
       {
-        path: "/home",
-        element: <HomeUsuarios />
+        path: "/home-participantes",
+        element: <HomeParticipantes />
       },
       {
         path: "/home-organizadores",
         element: <HomeOrganizadores />
       },
       {
-        path: "/cadastrar-usuario",
+        path: "/admin/home",
+        element: <HomeAdmins/>
+      },
+      {
+        path: "/meus-eventos/id-organizador",
+        element: <OrganizadoresEventos/>
+      },
+      {
+        path: "/cadastrar-participante",
         element: <CriarUsuarioComum />
       },
       {
-        path: "/editar-usuario",
+        path: "/editar-participante",
         element: <EditarUsuarioComum />
       },
       {
@@ -56,8 +106,28 @@ const router = createBrowserRouter([
         element: <CriarEvento />
       },
       {
-        path: "/editar-evento",
+        path: "/editar-evento/id-evento",
         element: <EditarEvento />
+      },
+      {
+        path: "/meus-eventos/id-organizador/titulo-evento",
+        element: <DetalhesEvento/>
+      },
+      {
+        path: 'eventos/titulo-evento',
+        element: <DetalhesEventosParticipantes/>
+      },
+      {
+        path: '/admin/gerenciar-participantes',
+        element: <GerenciarParticipantes/>
+      },
+      {
+        path: '/admin/gerenciar-organizadores',
+        element: <GerenciarOrganizadores/>
+      },
+      {
+        path: 'admin/gerenciar-eventos',
+        element: <GerenciarEventos/>
       },
     ],
   },
