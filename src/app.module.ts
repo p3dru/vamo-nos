@@ -7,9 +7,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { EventosModule } from './eventos/eventos.module';
 import { OrganizadoresModule } from './organizadores/organizadores.module';
 import { AdministradoresModule } from './administradores/administradores.module';
-import { AuthService } from './auth/auth.service';
-import { AuthController } from './auth/auth.controller';
 import { AuthModule } from './auth/auth.module';
+
 
 @Module({
   imports: [
@@ -25,7 +24,7 @@ import { AuthModule } from './auth/auth.module';
       synchronize: true,
     }),
     ConfigModule.forRoot(), UsuariosModule, EventosModule, OrganizadoresModule, AdministradoresModule, AuthModule],
-  controllers: [AppController, AuthController],
-  providers: [AppService, AuthService],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}

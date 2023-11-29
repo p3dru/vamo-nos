@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { OrganizadoresService } from './organizadores.service';
 import { OrganizadoresController } from './organizadores.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Organizador } from './entities/organizadore.entity';
+import { Organizador } from './entities/organizador.entity';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Organizador])],

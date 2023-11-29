@@ -2,7 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateOrganizadorDto } from './dto/create-organizadore.dto';
 import { UpdateOrganizadorDto } from './dto/update-organizadore.dto';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Organizador } from './entities/organizadore.entity';
+import { Organizador } from './entities/organizador.entity';
 import { Repository } from 'typeorm';
 import * as bcrypt from 'bcryptjs';
 
