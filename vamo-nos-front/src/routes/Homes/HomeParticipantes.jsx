@@ -1,6 +1,45 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import axios from 'axios';
 
+
+const DataDisplay = () => {
+    const [data, setData] = useState([]);
+  
+    useEffect(() => {
+      // Use uma função assíncrona para buscar os dados quando o componente montar
+      const fetchData = async () => {
+        try {
+          const response = await axios.get('http://localhost:3000/eventos');
+          setData(response.data);
+        } catch (error) {
+          console.error('Erro ao buscar dados:', error);
+        }
+      };
+  
+      fetchData();
+    }, []); // O array vazio assegura que a chamada seja feita apenas uma vez, quando o componente montar
+  
+    return (
+      <div>
+        <h1>Dados do Banco de Dados:</h1>
+        <ul>
+          {data.map((item) => (
+            <li key={item.id}>
+                {item.id}
+                {item.titulo}
+                {item.descricao}
+                {item.categoria}
+                {/* Renderize seus dados aqui */}</li>
+          ))}
+        </ul>
+      </div>
+    );
+  };
+
+export default DataDisplay
+
+/*
 const HomeParticipantes = () => {
     return (
         <div className="home-participantes">
@@ -14,3 +53,4 @@ const HomeParticipantes = () => {
 }
 
 export default HomeParticipantes;
+*/

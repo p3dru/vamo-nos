@@ -27,6 +27,11 @@ export class UsuariosController {
     return this.usuariosService.buscarEspecifico(+id);
   }
 
+  @Get(':email')
+  buscarEspecificoPorEmail(@Param('email') email: string){
+    return this.usuariosService.buscarEspecificoPorEmail(email);
+  }
+
   /*
   
 */

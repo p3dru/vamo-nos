@@ -39,6 +39,7 @@ const LoginParticipante = () => {
                 <div className="btn">
                     <Link to={'/login'} className="btn-cadastro">Voltar</Link>
                     <Link to={'/home-participantes'} className="btn-cadastro" type="submit">Acessar</Link>
+                    {/*<button onClick={handleSubmit}>Obter Dados</button>*/}
                 </div>
             </div>
         </form>
