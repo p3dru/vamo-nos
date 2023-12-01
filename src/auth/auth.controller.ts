@@ -1,4 +1,4 @@
-import { Body, Controller, HttpCode, HttpStatus, Post } from '@nestjs/common';
+import { Body, Controller, HttpCode, HttpStatus, Post} from '@nestjs/common';
 import { AuthService } from './auth.service';
 
 @Controller('auth')
@@ -7,7 +7,7 @@ export class AuthController {
 
     @HttpCode(HttpStatus.OK)
     @Post('login-participantes')
-    signInParticipantes(@Body() signInParticipantesDto: Record<string, any>){
+    signInParticipantes(@Body() signInParticipantesDto: Record<string, any>): Promise<any> {
         return this.authService.signInParticipantes(signInParticipantesDto.email, signInParticipantesDto.senha);
     }
 }

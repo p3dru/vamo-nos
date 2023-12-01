@@ -1,24 +1,35 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import axios from 'axios'
-
+import { Link, Navigate } from "react-router-dom";
+import axios from 'axios';
 
 const LoginParticipante = () => {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
+    const [redirect, setRedirect] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         try{
-            const response = await axios.post('http://localhost:3000/auth/login-participante', {email, senha});
-            const token = response.data.token;
-            //armazenar o token como cookie
-            console.log(token);
+            const response = await axios.post('http://localhost:3000/auth/login-participantes', {email, senha});
+            console.log(response);
+            const token = response.data.access_token;
+            if(token){
+                console.log("Token encontrado");
+                setRedirect(true);
+            } else {
+                console.log("Token não encontrado");
+                setRedirect(true);
+            }
         } catch (error){
+            //return <Navigate to='/login-participante'/>
             console.error('Erro de autenticação: ', error);
         }
     };
+
+    if(redirect){
+        return <Navigate to='/home-participantes'/>
+    }
 
     return (
         <form onSubmit={handleSubmit}>
@@ -38,8 +49,8 @@ const LoginParticipante = () => {
 
                 <div className="btn">
                     <Link to={'/login'} className="btn-cadastro">Voltar</Link>
-                    <Link to={'/home-participantes'} className="btn-cadastro" type="submit">Acessar</Link>
-                    {/*<button onClick={handleSubmit}>Obter Dados</button>*/}
+                    <Link /*to={'/home-participantes'} */ onClick={handleSubmit} className="btn-cadastro" type="submit">Acessar</Link>
+                    {/*<button onClick={handleSubmit} className="btn-cadastro">Obter Dados</button>*/}
                 </div>
             </div>
         </form>
