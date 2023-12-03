@@ -1,5 +1,5 @@
 import { Usuario } from "../../usuarios/entities/usuario.entity";
-import { Column, Entity, JoinTable, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinTable, ManyToMany, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Evento {
@@ -26,6 +26,10 @@ export class Evento {
 
     @Column({default: true})
     ativo: boolean;
+
+    @ManyToMany(() => Usuario)
+    @JoinTable()
+    usuarios_cadastrados: Usuario[];
 
     @ManyToOne(() => Usuario)
     @JoinTable()

@@ -114,7 +114,7 @@ const router = createBrowserRouter([
         element: <DetalhesEvento/>
       },
       {
-        path: 'eventos/titulo-evento',
+        path: '/eventos/:id',
         element: <DetalhesEventosParticipantes/>
       },
       {

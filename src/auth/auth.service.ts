@@ -3,6 +3,7 @@ import { UsuariosService } from '../usuarios/usuarios.service';
 import * as bcrypt from 'bcryptjs';
 import { JwtService } from '@nestjs/jwt';
 
+
 async function compararSenha(inputSenha, senhaArmazenada){
     const isMatch = await bcrypt.compare(inputSenha, senhaArmazenada);
     return isMatch;

@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from 'axios';
 
 
 const DataDisplay = () => {
     const [data, setData] = useState([]);
+    const [redirect, setRedirect] = useState(false);
+    const {id} = useParams;
   
     useEffect(() => {
       // Use uma função assíncrona para buscar os dados quando o componente montar
@@ -30,6 +32,9 @@ const DataDisplay = () => {
                 {item.titulo}
                 {item.descricao}
                 {item.categoria}
+                <br/>
+                <Link to={`/eventos/${item.id}`}>Acessar</Link>
+
                 {/* Renderize seus dados aqui */}</li>
           ))}
         </ul>

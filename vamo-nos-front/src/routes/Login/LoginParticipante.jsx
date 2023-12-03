@@ -16,10 +16,11 @@ const LoginParticipante = () => {
             const token = response.data.access_token;
             if(token){
                 console.log("Token encontrado");
+                localStorage.setItem('token', token);
                 setRedirect(true);
             } else {
                 console.log("Token não encontrado");
-                setRedirect(true);
+                setRedirect(false);
             }
         } catch (error){
             //return <Navigate to='/login-participante'/>
@@ -28,6 +29,7 @@ const LoginParticipante = () => {
     };
 
     if(redirect){
+
         return <Navigate to='/home-participantes'/>
     }
 
