@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Link, Navigate } from "react-router-dom";
-import axios from 'axios';
+import { Link } from "react-router-dom";
+import './styles/Login.css'
 
-const LoginParticipante = () => {
+const Login = () => {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
     const [redirect, setRedirect] = useState(false);
@@ -32,29 +32,29 @@ const LoginParticipante = () => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <div className="login">
             <div className="login-div">
-                <label>
-                    Email:
-                    <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} className="login-inputs"/>
-                </label>
+                <h2 className="mb-3 fs-1">Login</h2>
 
-                <label>
-                    Senha:
-                    <input type="password" value={senha} onChange={(e) => setSenha(e.target.value)} className="login-inputs"/>
-                </label>
+                <input className="login-inputs" placeholder="Email"/>
+                <input className="login-inputs" placeholder="Senha"/>
 
-                <Link to={'/alterar-senha-participantes'} className="btn-login">Alterar senha</Link>
-
+                <hr />
+                <Link to={'/alterar-senha'} className=" mt-0 text-decoration-underline">Esqueci minha senha</Link>
+                <Link to={'/cadastrar'} className="text-decoration-underline">Não tenho conta, cadastrar-se</Link>
+                <hr />
 
                 <div className="btn">
-                    <Link to={'/login'} className="btn-cadastro">Voltar</Link>
-                    <Link /*to={'/home-participantes'} */ onClick={handleSubmit} className="btn-cadastro" type="submit">Acessar</Link>
-                    {/*<button onClick={handleSubmit} className="btn-cadastro">Obter Dados</button>*/}
+                    <Link to={'/home-participantes'} /*onClick={handleSubmit}*/ className="btn-cadastro" type="submit">Acessar como Participante</Link>
+                    <Link to={'/home-organizadores'} className="btn-cadastro">Acessar como Organizador</Link>
                 </div>
             </div>
-        </form>
-    )
+
+            <div className="btn">
+                <Link to={'/'} className="btn-cadastro">Voltar</Link>
+            </div>
+        </div>
+    );
 }
 
-export default LoginParticipante;
+export default Login;

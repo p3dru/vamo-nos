@@ -4,7 +4,7 @@ import "./components-styles/Navbar.css"
 const Navbar = () => {
     return (
         <nav className="navbar">
-            <h2>
+            <h2 className="m-0">
                 <Link to={`/`}>VamoNos</Link>
             </h2>
             <ul>

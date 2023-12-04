@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Home = () => {
     return (
         <div className="home">
-            <h1>Um clique, um passo e uma mudança</h1>
+            <h1>Um clique, uma mudança</h1>
             <div className="apresentacao">
                 <div className="chamado">
                     <h2>VamoNos, um convite</h2>
@@ -14,12 +14,12 @@ const Home = () => {
                         o projeto, explicar também diferenças entre
                         usuário organizador e usuário participante]
                     </p>
+                    <div className="btn">
+                        <Link to={'/login'} className="btn-cadastro">Acessar</Link>
+                        <Link to={'/cadastrar'} className="btn-cadastro">Cadastrar-se</Link>
+                    </div>
                 </div>
                 <img className="image-home" src={logo} alt="Logo"/>
-            </div>
-            <div className="btn">
-                <Link to={'/login'} className="btn-cadastro">Acessar</Link>
-                <Link to={'/cadastrar'} className="btn-cadastro">Cadastrar-se</Link>
             </div>
         </div>
     )

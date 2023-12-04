@@ -21,7 +21,7 @@ const SeletorDeImagem = () => {
 
     return (
         <div>
-             <input type="file" accept="image/*" onChange={handleImagemChange} />
+            <input className="login-inputs" type="file" accept="image/*" onChange={handleImagemChange} />
             {imagem && <img src={imagem} alt="Imagem selecionada" style={{ maxWidth: '100%', marginTop: '10px' }} />}
         </div>
     )

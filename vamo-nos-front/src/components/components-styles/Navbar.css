@@ -6,13 +6,17 @@
     background-color: #17191f;
 }
 
-.navbar h2 a{
-    opacity: 1;
+.navbar h2{
+    margin: 0;
+    & a{
+        opacity: 1;
+    }
 }
 
 .navbar ul{
     display: flex;
     gap: 1rem;
+    margin: 0;
 }
 
 .new-btn{
@@ -20,7 +24,7 @@
     border: 1px solid #fff;
     padding: .5rem 1rem;
     border-radius: 1rem;
-    transition: 1s;
+    transition: 0.25s;
     opacity: 1;
 }
 
