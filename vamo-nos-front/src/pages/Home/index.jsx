@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 import './style.css';
@@ -21,9 +22,8 @@ export default function Home() {
                     </p>
 
                     <div className="d-inline-grid">
-                        <Link to={'/login'} className="btn btn-dark">Acessar</Link>
-                        <br />
-                        <Link to={'/signup'} className="btn btn-dark">Cadastrar-se</Link>
+                        <Link to={'/login'} className="btn btn-dark my-1">Acessar</Link>
+                        <Link to={'/signup'} className="btn btn-dark my-1">Cadastrar-se</Link>
                     </div>
                 </div>
 

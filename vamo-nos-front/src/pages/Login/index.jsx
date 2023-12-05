@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/useAuth';
@@ -13,25 +14,24 @@ export default function Login() {
   const email = useRef(null);
   const password = useRef(null);
 
-  function participantLogin() {
+  function userLogin(typeUser) {
     if (!email.current.value.trim() || !password.current.value.trim()) {
       alert('Informe seu Email e Senha');
       return;
     }
     try {
-      login(email.current.value, password.current.value, 'participant', '3281');
-    } catch (error) {
-      alert('Erro 404 ou 501');
-    }
-  }
+      login(email.current.value, password.current.value, typeUser, '3281');
 
-  function organizerLogin() {
-    if (!email.current.value.trim() || !password.current.value.trim()) {
-      alert('Informe seu Email e Senha');
-      return;
-    }
-    try {
-      login(email.current.value, password.current.value, 'organizer', '3281');
+      switch (typeUser) {
+        case 'participant':
+          navigate('/participant');
+          return;
+        case 'organizer':
+          navigate('/organizer');
+          return;
+        default:
+          break;
+      }
     } catch (error) {
       alert('Erro 404 ou 501');
     }
@@ -49,7 +49,7 @@ export default function Login() {
         <div className="form-check form-switch">
           <input
             defaultValue={false}
-            className="form-check-input"
+            className="form-check-input mt-2"
             type="checkbox"
             role="switch"
             onChange={() => setShowPass(!showPass)}
@@ -68,15 +68,13 @@ export default function Login() {
         <strong className='m-0 fs-5'>Acessar como</strong>
         <Link
           className={'btn fs-6 my-1'}
-          onClick={() => {participantLogin()}}
-          to={'/participant'}
+          onClick={() => {userLogin('participant')}}
         >
           Participante
         </Link>
         <Link
           className={'btn fs-6 my-1'}
-          onClick={() => {organizerLogin()}}
-          to={'/organizer'}
+          onClick={() => {userLogin('organizer')}}
         >
           Organizador
         </Link>

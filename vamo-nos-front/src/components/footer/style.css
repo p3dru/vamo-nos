@@ -6,4 +6,5 @@ footer{
 footer p{
     color: silver;
     text-align: center;
+    margin: 0;
 }

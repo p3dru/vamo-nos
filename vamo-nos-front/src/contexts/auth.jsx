@@ -1,5 +1,4 @@
 import React, { createContext, useState, useEffect } from "react";
-
 export const AuthContext = createContext({});
 
 export const AuthProvider = ({ children }) => {
@@ -16,7 +15,7 @@ export const AuthProvider = ({ children }) => {
                 type: type,
                 access_token: access_token,
             })
-        );
+        )
         return;
     }
 
