@@ -1,0 +1,9 @@
+.eventos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}

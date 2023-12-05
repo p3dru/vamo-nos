@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap');
+
+*{
+  font-family: 'Comfortaa', sans-serif;
+}
+
+html, body, #root, main{
+  height: 100%;
+  width: 100%;
+  background-color: #454545;
+  color: white;
+}
+
+#root{
+  margin: auto;
+  text-align: center;
+}
+
+main{
+  margin-top: 2rem;
+  padding: 10rem 5rem;
+
+  & a{
+    color: white;
+    text-decoration: underline;
+    transition: 0.25s;
+  
+    &:hover{
+      color: violet;
+      text-shadow: 1px 1px 0px rebeccapurple, 
+                  1px -1px 0px rebeccapurple, 
+                  -1px 1px 0px rebeccapurple, 
+                  -1px -1px 0px rebeccapurple, 
+                  1px 0px 0px rebeccapurple, 
+                  0px 1px 0px rebeccapurple, 
+                  -1px 0px 0px rebeccapurple, 
+                  0px -1px 0px rebeccapurple;
+      font-weight: bold;
+    }
+  }
+}
+
+.navbar-brand img{
+  width: 3rem;
+}
+
+a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: blueviolet;
+  text-decoration: none;
+  transition: 0.25s;
+
+  &:hover{
+    color: magenta;
+  }
+}
+
+.btn{
+  font-size: 1.5rem;
+  color: darkgray;
+  background-color: black;
+  transition: 0.25s;
+
+  &:hover{
+    color: white;
+    border: 1px solid white !important;
+    text-shadow: none;
+    background-color: #222;
+  }
+}
+
+form{
+  display: grid;
+
+  & *{
+    margin: 0.25rem;
+  }
+
+  & .form-check{
+    display: flex;
+
+    & label{
+      margin: 0 0.25rem;
+    }
+  }
+}
+
+input{
+  padding: 0.25rem 0.75rem;
+  border: 1px solid gray;
+  border-radius: 0.25rem;
+  background-color: #222;
+  color: white;
+}
+
+@media (max-width:480px) {
+
+}
+@media (max-width:600px) {
+
+}
+@media (max-width:991px) {
+
+}
