@@ -26,6 +26,7 @@ import HomeAdmins from './routes/Homes/HomeAdmins.jsx'
 import GerenciarParticipantes from './routes/Usuarios/Admin/GerenciarParticipantes.jsx'
 import GerenciarOrganizadores from './routes/Usuarios/Admin/GerenciarOrganizadores.jsx'
 import GerenciarEventos from './routes/Usuarios/Admin/GerenciarEventos.jsx'
+import Not_Found from './routes/Geral/Not_Found.jsx'
 
 
 const router = createBrowserRouter([
@@ -116,6 +117,10 @@ const router = createBrowserRouter([
         path: '/admin/gerenciar-eventos',
         element: <GerenciarEventos/>
       },
+      {
+        path: "*",
+        element: <Not_Found />
+      }, 
     ],
   },
 ]);

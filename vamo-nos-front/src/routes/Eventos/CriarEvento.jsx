@@ -4,7 +4,7 @@ import SeletorDeImagem from "../Geral/SeletorDeImagem";
 
 const CriarEvento = () => {
     return (
-        <div className="criar-evento py-5 px-4">
+        <div className="criar-evento px-4">
             <h2 className="text-center mb-3 fs-1">Cadastro de Evento</h2>
 
             <div className="d-grid">

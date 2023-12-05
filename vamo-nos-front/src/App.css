@@ -1,5 +1,9 @@
+html, body, #root, .App{
+  height: 100%;
+}
 .container{
+  height: 80%;
   max-width: 1000px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 1rem 2rem;
 }
