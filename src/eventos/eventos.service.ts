@@ -1,9 +1,10 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Inject, Injectable, NotFoundException } from '@nestjs/common';
 import { CreateEventoDto } from './dto/create-evento.dto';
 import { UpdateEventoDto } from './dto/update-evento.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Evento } from './entities/evento.entity';
 import { Repository } from 'typeorm';
+import { JwtService } from '@nestjs/jwt';
 
 
 //FALTA INJETAR REPOSITÓRIO, E SEGUIR O MODELO DE USUÁRIOS
@@ -13,7 +14,7 @@ import { Repository } from 'typeorm';
 export class EventosService {
   constructor(
     @InjectRepository(Evento)
-    private eventoRepository: Repository<Evento>
+    private eventoRepository: Repository<Evento>,
   ){}
 
   //Gets

@@ -6,13 +6,13 @@ export class Evento {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column({length: 30})
+    @Column({length: 50})
     titulo: string;
 
     @Column("text")
     descricao: string;
 
-    @Column({length: 20})
+    @Column({length: 30})
     categoria: string;
 
     @Column("bytea")

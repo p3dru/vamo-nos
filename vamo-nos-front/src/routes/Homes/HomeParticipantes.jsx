@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from 'axios';
 
 
 const DataDisplay = () => {
     const [data, setData] = useState([]);
     const [redirect, setRedirect] = useState(false);
+    const navigate = useNavigate();
     const {id} = useParams;
   
     useEffect(() => {
@@ -16,6 +17,7 @@ const DataDisplay = () => {
           setData(response.data);
         } catch (error) {
           console.error('Erro ao buscar dados:', error);
+          navigate('/login-participante')
         }
       };
   

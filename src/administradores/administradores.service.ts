@@ -54,6 +54,15 @@ export class AdministradoresService {
     return administrador;
   }
 
+  async buscarEspecificoPorEmail(email: string){
+    const administrador = await this.administradorRepository.findOneBy({email});
+    if(!administrador){
+      throw new NotFoundException('Administrador não encontrado');
+    }
+
+    return administrador;
+  }
+
   async excluirAdministrador(id: number) {
     const administrador = await this.buscarEspecifico(id);
 

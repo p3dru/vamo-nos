@@ -1,10 +1,11 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException, UseGuards } from '@nestjs/common';
 import { CreateOrganizadorDto } from './dto/create-organizadore.dto';
 import { UpdateOrganizadorDto } from './dto/update-organizadore.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Organizador } from './entities/organizador.entity';
 import { Repository } from 'typeorm';
 import * as bcrypt from 'bcryptjs';
+import { AdministradoresGuard, OrganizadoresGuard } from '../auth/auth.guard';
 
 @Injectable()
 export class OrganizadoresService {
@@ -14,12 +15,14 @@ export class OrganizadoresService {
   ){}
 
   //get
+  @UseGuards(AdministradoresGuard)
   async buscarTodos(): Promise<Organizador[]> {
     return await this.organizadorRepository.find({
       order: {id: "ASC"},
     });
   }
 
+  @UseGuards(AdministradoresGuard)
   async buscarEspecifico(id: number) {
     const organizador = await this.organizadorRepository.findOneBy({id});
 
@@ -28,6 +31,16 @@ export class OrganizadoresService {
     }
 
     return await this.organizadorRepository.findOneBy({id});
+  }
+
+  @UseGuards(AdministradoresGuard)
+  async buscarEspecificoPorEmail(email: string){
+    const organizador = await this.organizadorRepository.findOneBy({email});
+    if(!organizador){
+      throw new NotFoundException('Organizador não encontrado');
+    }
+
+    return organizador;
   }
 
   //post
@@ -42,6 +55,8 @@ export class OrganizadoresService {
   }
 
   //patch
+  @UseGuards(AdministradoresGuard)
+  @UseGuards(OrganizadoresGuard)
   async atualizarOrganizador(id: number, updateOrganizadoreDto: UpdateOrganizadorDto) {
     const organizador = await this.buscarEspecifico(id);
 
@@ -53,6 +68,7 @@ export class OrganizadoresService {
   }
 
   //delete
+  @UseGuards(AdministradoresGuard)
   async excluirOrganizador(id: number) {
     const organizador = await this.buscarEspecifico(id);
     

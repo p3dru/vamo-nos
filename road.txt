@@ -309,4 +309,4 @@ Todas as http requests são parecidas de se configurar por lá
 [Sempre que fizer alterações relevantes, siga abaixo]
 5 - git add . para adicionar todos os arquivos e diretórios
 6 - git commit -m "Primeiro commit" (o -m é para criar mensagens de commit para identificar melhor as alterações)
-7 - git push origin master (para efetivar as mudanças e refletir no git na nova branch master) (caso dê errado, no final -f) 
+7 - git push origin master (para efetivar as mudanças e refletir no git na nova branch master) (caso dê errado, no final -f)

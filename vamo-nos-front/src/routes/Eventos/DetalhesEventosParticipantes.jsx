@@ -1,26 +1,29 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from 'axios';
 
 
 const DetalhesEventosParticipantes = () => {
     const [data, setData] = useState([]);
+    const navigate = useNavigate();
     const {id} = useParams();
     const [inscrito, setInscrito] = useState([false]);
 
     //Aqui é onde vou testar pegar os dados dos usuários, com o header de autorização e tentar decodificar o token
     //const usuarioAtual =
-    /*const token = localStorage.getItem('token');
-axios.get('http://localhost:3000/auth/user', {
-   headers: {
+    const token = localStorage.getItem('token');
+    axios.get('http://localhost:3000/auth/profile', {
+    headers: {
        Authorization: `Bearer ${token}`
-   }
-}).then(response => {
-   console.log(response.data);
-}).catch(error => {
-   console.error('Erro ao recuperar os dados do usuário: ', error);
-});
-  */
+    }
+    }).then(response => {
+        console.log('Dados do usuário: ', response.data);
+    }).catch(error => {
+        console.error('Erro ao recuperar os dados do usuário: ', error);
+        navigate('/login-participante');
+    });
+
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -29,6 +32,7 @@ axios.get('http://localhost:3000/auth/user', {
                 console.log(response.data)
             } catch(error){
                 console.error('Erro ao buscar dados:', error);
+                navigate('/login-participante');
             }
         };
         fetchData();
