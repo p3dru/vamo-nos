@@ -1,11 +1,11 @@
 import React from 'react';
 import { useState, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from '../../contexts/useAuth';
+import { useAuth } from '../../../contexts/useAuth';
 
 import './style.css';
 
-export default function Login() {
+export default function Admin_Login() {
   const { login } = useAuth();
   const [showPass, setShowPass] = useState(false);
   
@@ -14,23 +14,17 @@ export default function Login() {
   const email = useRef(null);
   const password = useRef(null);
 
-  function userLogin(typeUser) {
+  function adminLogin(typeUser) {
     if (!email.current.value.trim() || !password.current.value.trim()) {
       alert('Informe seu Email e Senha');
       return;
     }
     try {
-      login(email.current.value, password.current.value, typeUser, '3281');
+      if (typeUser == 'admin') {
+        login(email.current.value, password.current.value, typeUser, '3281');
 
-      switch (typeUser) {
-        case 'participant':
-          navigate('/participant');
-          return;
-        case 'organizer':
-          navigate('/organizer');
-          return;
-        default:
-          break;
+        navigate('/admin');
+        return;
       }
     } catch (error) {
       alert('Erro 404 ou 501');
@@ -39,8 +33,7 @@ export default function Login() {
 
   return (
     <div>
-      <h1>VamoNos</h1>
-      <p className='p-2 border-bottom rounded'>Fazendo do mundo um lugar melhor</p>
+      <h1>Área do Admin</h1>
 
       <hr />
 
@@ -66,24 +59,13 @@ export default function Login() {
       <hr />
 
       <div className="d-grid">
-        <strong className='m-0 fs-5'>Acessar como</strong>
         <Link
           className={'btn fs-6 my-1'}
-          onClick={() => {userLogin('participant')}}
-          to={'/participant'}
+          onClick={() => {adminLogin('admin')}}
+          to={'/admin'}
         >
-          Participante
+          Acessar
         </Link>
-        <Link
-          className={'btn fs-6 my-1'}
-          onClick={() => {userLogin('organizer')}}
-          to={'/organizer'}
-        >
-          Organizador
-        </Link>
-        <hr />
-        <Link to={'/recover-pass'}>Esqueci minha senha</Link>
-        <Link to={'/signup'}>Cadastrar-se</Link>
       </div>
     </div>
   )

@@ -2,9 +2,9 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 import './style.css';
-import EventDetails from '../../../assets/EventDetails';
+import EventDetails from '../../../../assets/EventDetails';
 
-export default function Organizer_EventDetails() {
+export default function Admin_EventDetails() {
     const navigate = useNavigate();
 
     const data = {
@@ -24,7 +24,7 @@ export default function Organizer_EventDetails() {
 
             <hr />
 
-            <Link to={'/'}>Voltar</Link>
+            <Link to={'/admin/events'}>Voltar</Link>
         </div>
     )
 }

@@ -5,8 +5,9 @@
 }
 
 html, body, #root, main{
-  min-height: 100%;
+  min-height: 100vh; /* Mínimo de 100% da altura da viewport */
   width: 100%;
+  height: auto;
   background-color: #454545;
   color: white;
 }

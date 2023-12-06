@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 export default function NotFounded() {
   return (
     <div className='d-grid'>
-        <h1>404 <i class="bi bi-emoji-frown fs-1" /></h1>
+        <h1>404 <i className="bi bi-emoji-frown fs-1" /></h1>
         <h4>Página Não encontrada!</h4>
         
         <hr />

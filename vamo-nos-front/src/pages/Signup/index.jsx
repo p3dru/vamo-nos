@@ -9,6 +9,7 @@ export default function Signup() {
     return (
     <div>
         <h1>Cadastro</h1>
+        <p className='p-2 border-bottom rounded'>Vamos mudar o mundo juntos</p>
 
         <hr />
 

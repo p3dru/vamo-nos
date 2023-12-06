@@ -10,7 +10,7 @@ export default function Header() {
     return(
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark py-2 px-5">
             <div className="container-fluid">
-                <Link className="navbar-brand" to={"/"}>
+                <Link className="navbar-brand" to={'/'}>
                     VamoNos
                 </Link>
                 {logged && (
@@ -21,7 +21,7 @@ export default function Header() {
                     <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <Link to="/profile" className="nav-link">@{user?.email}</Link>
+                                <Link to={'/'} className="nav-link">@{user?.email}</Link>
                             </li>
                             <li className="nav-item">
                                 <Link to={'/'} onClick={() => {logout()}} className="nav-link">Sair</Link>

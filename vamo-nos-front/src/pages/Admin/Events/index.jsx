@@ -1,10 +1,10 @@
-import React, {useState, useEffect} from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 import './style.css';
 import EventsList from '../../../assets/EventsList';
 
-export default function Organizer_Home() {
+export default function Admin_Events() {
     const navigate = useNavigate();
 
     const data = [
@@ -14,6 +14,8 @@ export default function Organizer_Home() {
             description: 'Lorem ipsun alguma coisa',
             category: 'categoria 1',
             date: new Date('2023-12-15'),
+            picture: null,
+            organizer: 'orga01',
             followers: 50,
         },
         {
@@ -22,6 +24,8 @@ export default function Organizer_Home() {
             description: 'Lorem ipsun alguma coisa',
             category: 'doisss',
             date: new Date('2023-12-20'),
+            picture: null,
+            organizer: 'orga01',
             followers: 50,
         },
         {
@@ -30,6 +34,8 @@ export default function Organizer_Home() {
             description: 'Lorem ipsun alguma coisa',
             category: 'aaaaaaaaaaaaaaa',
             date: new Date('2023-12-25'),
+            picture: null,
+            organizer: 'irineu',
             followers: 50,
         },
         {
@@ -38,6 +44,8 @@ export default function Organizer_Home() {
             description: 'Lorem ipsun alguma coisa',
             category: 'uuuuuuu',
             date: new Date('2023-11-30'),
+            picture: null,
+            organizer: 'zeca',
             followers: 50,
         },
     ]
@@ -76,13 +84,8 @@ export default function Organizer_Home() {
                         placeholder='Pesquise aqui...'
                         onChange={(e) => setSearchInput(e.target.value)}
                     />
-                    <Link className='btn m-2' to={'/organizer/event-form'}><i className="bi bi-plus-lg" /> Evento</Link>
                 </div>
                 <div className="d-flex justify-content-evenly">
-                    <div className="form-check">
-                        <input className="form-check-input mb-0" type="checkbox" checked />
-                        <label>Meus Eventos</label>
-                    </div>
                     <div className="form-check">
                         <input
                             className="form-check-input mb-0"
