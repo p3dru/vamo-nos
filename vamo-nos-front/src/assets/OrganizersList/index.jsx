@@ -28,7 +28,13 @@ export default function OrganizersList({organizers}) {
                             <p className="card-text">Eventos Criados: {organizer.events_created.length}</p>
                         </div>
                         <div className="card-footer">
-                            <Link to={`/${user.type}/user/${organizer.id}`} className="btn">Mais detalhes</Link>
+                            <Link
+                                // to={`/${user.type}/user/${organizer.id}`}
+                                className="btn"
+                                onClick={() => {alert('Site ainda em Construção')}}
+                            >
+                                Mais detalhes
+                            </Link>
                         </div>
                     </div>
                 )})

@@ -26,7 +26,13 @@ export default function ParticipantsList({participants}) {
                             <p className="card-text">Participações: {participant.events_followed.length}</p>
                         </div>
                         <div className="card-footer">
-                            <Link to={`/${user.type}/user/${participant.id}`} className="btn">Mais detalhes</Link>
+                            <Link
+                                // </div>to={`/${user.type}/user/${participant.id}`}
+                                className="btn"
+                                onClick={() => {alert('Site ainda em Construção')}}
+                            >
+                                Mais detalhes
+                            </Link>
                         </div>
                     </div>
                 )})
