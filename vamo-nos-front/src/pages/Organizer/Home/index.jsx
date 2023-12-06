@@ -76,7 +76,7 @@ export default function Organizer_Home() {
                         placeholder='Pesquise aqui...'
                         onChange={(e) => setSearchInput(e.target.value)}
                     />
-                    <Link className='btn m-2' to={'/organizer/event-form'}><i className="bi bi-plus-lg" /> Evento</Link>
+                    <Link className='btn m-2' to={'/organizer/create-event'}><i className="bi bi-plus-lg" /> Evento</Link>
                 </div>
                 <div className="d-flex justify-content-evenly">
                     <div className="form-check">

@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import './style.css';
 
-export default function Organizer_EventForm() {
+export default function Organizer_EventCreate() {
     const navigate = useNavigate();
 
     const title = useRef(null);
@@ -12,9 +12,36 @@ export default function Organizer_EventForm() {
     const image = useRef(null);
     const date = useRef(null);
 
+    function createEvent() {
+        if (title.current.value.trim(),
+            description.current.value.trim(),
+            category.current.value.trim(),
+            date.current.value.trim()
+        ) {
+            alert('Preencha todos os campos');
+            return;
+        }
+        axios.post(`${API_BASEURL}/event`,
+            {
+                title: title.current.value,
+                description: description.current.value,
+                category: category.current.value,
+                image: image.current.value,
+                date: date.current.value
+            }
+        )
+        .then((res) => {
+            console.log(res);
+        })
+        .catch((err) => {
+            console.error(err);
+            alert('Erro Interno 500');
+        })
+    }
+
     return (
         <div>
-            <h1>Formulário de Eventos</h1>
+            <h1>Cadastro de Evento</h1>
 
             <hr />
 
@@ -32,8 +59,8 @@ export default function Organizer_EventForm() {
 
             <div className="d-grid">
                 <Link
-                    className={'btn fs-6 my-1'}
-                    onClick={() => {}}
+                    className={'btn btn-success text-success fs-6 my-1'}
+                    onClick={() => {createEvent()}}
                     to={'/'}
                 >
                     Criar

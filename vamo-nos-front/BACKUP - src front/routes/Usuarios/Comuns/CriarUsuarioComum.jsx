@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import SeletorDeImagem from "../../Geral/SeletorDeImagem";
-import '../Comuns/styles/CriarUsuarioComum.css'
+import './styles/CriarUsuarioComum.css'
 
 const CriarUsuarioComum = () => {
     return (

@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const DetalhesEventosParticipantes = () => {
     const [data, setData] = useState([]);
-    const {id} = useParams();
+    const { id } = useParams();
     const [inscrito, setInscrito] = useState([false]);
 
     //Aqui é onde vou testar pegar os dados dos usuários, com o header de autorização e tentar decodificar o token
